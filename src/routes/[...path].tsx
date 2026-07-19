@@ -21,7 +21,7 @@ export default function ReferencePage() {
         <Show when={article()} fallback={<NotFoundView />}>
           {(current) => (
             <>
-              <Title>{current().title} | Uma Reference</Title>
+              <Title>{current().title} | Uma musume - Reference Document</Title>
               <Meta name="description" content={current().description} />
               <Show
                 when={current().path === `/${domainSlug()}` && domain()}

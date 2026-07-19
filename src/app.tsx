@@ -1,6 +1,5 @@
 // oxlint-disable import/no-unassigned-import -- Fonts and global CSS are application assets.
 import "@fontsource-variable/figtree";
-import "@fontsource-variable/newsreader";
 import { MetaProvider } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";

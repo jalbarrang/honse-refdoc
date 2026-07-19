@@ -10,7 +10,7 @@ export default function HomePage() {
 
   return (
     <ReferenceSiteShell domains={domains}>
-      <Title>Uma Reference | Global Field Guide</Title>
+      <Title>Uma musume - Reference Document</Title>
       <Meta
         name="description"
         content="A searchable global reference for Umamusume banners, strategy, and mechanics."

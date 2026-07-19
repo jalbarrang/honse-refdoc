@@ -14,10 +14,10 @@ export function HomeView(props: HomeViewProps) {
     <div class="home-view">
       <section class="home-hero" aria-labelledby="home-title">
         <p class="eyebrow">Global edition / community reference</p>
-        <h1 id="home-title">Run smarter from gate to finish.</h1>
+        <h1 id="home-title">The refdoc, made searchable.</h1>
         <p>
-          A searchable field guide to banners, training strategy, mid-run decisions, and the
-          mechanics beneath every race.
+          Banners, training strategy, mid-run decisions, and the mechanics beneath every race, from
+          Erzzy and Kireina&apos;s community reference document.
         </p>
         <a href="/new-player">New player starting line</a>
       </section>

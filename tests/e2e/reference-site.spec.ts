@@ -3,9 +3,7 @@ import { expect, test } from "@playwright/test";
 test("navigates the six-domain field guide", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Run smarter from gate to finish.",
-  );
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The refdoc, made searchable.");
   await expect(page.locator(".domain-program li")).toHaveCount(6);
 
   await page
@@ -18,10 +16,14 @@ test("navigates the six-domain field guide", async ({ page }) => {
 
 test("searches headings and follows a deep link", async ({ page }, testInfo) => {
   await page.goto("/");
-  await page.getByRole("button", { name: /Search field guide/ }).click();
 
   const dialog = page.getByRole("dialog", { name: "Search the field guide" });
-  await expect(dialog).toBeVisible();
+  // The trigger's listener attaches on hydration; a click that lands earlier
+  // is lost, so retry the open until it takes.
+  await expect(async () => {
+    await page.getByRole("button", { name: /Search field guide/ }).click();
+    await expect(dialog).toBeVisible({ timeout: 1500 });
+  }).toPass({ timeout: 15000 });
   await dialog.getByRole("button", { name: "Close" }).click();
   await expect(dialog).toBeHidden();
   if (testInfo.project.name === "desktop") await page.keyboard.press("Control+k");

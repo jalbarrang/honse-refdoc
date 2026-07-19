@@ -17,10 +17,8 @@ export function SiteShell(props: SiteShellProps) {
         Skip to field guide
       </a>
       <header class="site-header">
-        <a class="site-mark" href="/" aria-label="Uma Reference home">
-          <span aria-hidden="true">U</span>
-          <strong>Uma Refdoc</strong>
-          <small>Trackside field guide</small>
+        <a class="site-mark" href="/" aria-label="Uma musume - Reference Document, home">
+          <strong>Uma musume - Reference Document</strong>
         </a>
         <div class="header-actions">
           <SearchTrigger onOpen={props.onSearchOpen} />
@@ -35,8 +33,8 @@ export function SiteShell(props: SiteShellProps) {
       </div>
       <footer class="site-footer">
         <p>
-          <strong>Uma Reference</strong> / community guide by Erzzy, with terminology help from
-          Kireina.
+          <strong>Uma musume - Reference Document</strong> / community guide by Erzzy, with
+          terminology help from Kireina.
         </p>
         <div>
           <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
