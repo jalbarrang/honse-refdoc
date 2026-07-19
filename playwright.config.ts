@@ -7,7 +7,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "npm run dev",
+    command: "pnpm run dev",
     url: "http://localhost:3000",
     reuseExistingServer: true,
   },

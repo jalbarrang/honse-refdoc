@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@11.5.2",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "predev": "npm run content:build",
+    "predev": "pnpm run content:build",
     "dev": "vinxi dev",
-    "prebuild": "npm run content:build",
+    "prebuild": "pnpm run content:build",
     "build": "vinxi build",
     "preview": "vinxi preview",
     "typecheck": "tsc --noEmit",
@@ -21,7 +22,7 @@
     "check:lines": "node scripts/check-source-size.mjs",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "check": "npm run content:check && npm run typecheck && npm run lint && npm run check:lines && npm run format:check && npm run test && npm run build"
+    "check": "pnpm run content:check && pnpm run typecheck && pnpm run lint && pnpm run check:lines && pnpm run format:check && pnpm run test && pnpm run build"
   },
   "dependencies": {
     "@fontsource-variable/figtree": "5.3.0",
