@@ -1,9 +1,0 @@
-.output/
-.vinxi/
-node_modules/
-pnpm-lock.yaml
-content/generated/
-content/source/
-public/media/reference/
-src/generated/
-.taskman/

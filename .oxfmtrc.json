@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    ".agents/**",
+    ".output/**",
+    ".vinxi/**",
+    "content/generated/**",
+    "content/source/**",
+    "public/media/reference/**",
+    "src/generated/**",
+    ".taskman/**"
+  ]
+}
