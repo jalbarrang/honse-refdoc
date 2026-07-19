@@ -1,0 +1,48 @@
+{
+  "name": "honse-refdoc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "predev": "npm run content:build",
+    "dev": "vinxi dev",
+    "prebuild": "npm run content:build",
+    "build": "vinxi build",
+    "preview": "vinxi preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --deny-warnings .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "content:build": "tsx scripts/content/build-content.ts",
+    "content:check": "tsx scripts/content/validate-content.ts",
+    "check:lines": "node scripts/check-source-size.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "check": "npm run content:check && npm run typecheck && npm run lint && npm run check:lines && npm run format:check && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "5.3.0",
+    "@fontsource-variable/newsreader": "5.3.0",
+    "@solidjs/meta": "0.29.4",
+    "@solidjs/router": "0.16.2",
+    "@solidjs/start": "1.3.2",
+    "solid-js": "1.9.14",
+    "vinxi": "0.5.11"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.61.1",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.0.15",
+    "marked": "18.0.6",
+    "oxlint": "1.74.0",
+    "prettier": "3.9.5",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.20.3",
+    "typescript": "7.0.2",
+    "vite": "6.4.3",
+    "vitest": "4.1.10"
+  }
+}

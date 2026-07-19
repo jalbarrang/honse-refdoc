@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "plugins": ["typescript", "unicorn", "import", "jsx-a11y"],
+  "ignorePatterns": [
+    ".output/**",
+    ".vinxi/**",
+    "node_modules/**",
+    "content/generated/**",
+    "public/media/reference/**",
+    ".taskman/**"
+  ]
+}

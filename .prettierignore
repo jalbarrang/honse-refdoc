@@ -1,0 +1,8 @@
+.output/
+.vinxi/
+node_modules/
+content/generated/
+content/source/
+public/media/reference/
+src/generated/
+.taskman/
