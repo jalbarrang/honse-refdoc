@@ -52,3 +52,27 @@ test("renders accessible media and contains wide content", async ({ page }) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
   expect(overflow).toBeLessThanOrEqual(1);
 });
+
+test("filters uma reviews into tiers and opens the matching review", async ({ page }) => {
+  await page.goto("/banners/uma-musume-reviews");
+
+  await expect(page.getByText("Interactive tier list", { exact: true })).toBeVisible();
+  const styleTab = page.getByRole("tab", { name: "CM Style" });
+  await expect(styleTab).toHaveAttribute("aria-selected", "true");
+
+  const bakushin = page.getByRole("button", { name: "Open review for Sakura Bakushin O" });
+  await expect(bakushin).toBeVisible();
+  const review = page.getByRole("dialog", { name: "Sakura Bakushin O" });
+  await expect(async () => {
+    await bakushin.click();
+    await expect(review).toBeVisible({ timeout: 1500 });
+  }).toPass({ timeout: 15000 });
+  await expect(review).toContainText("Pace Chaser 4");
+  await review.getByRole("button", { name: "Close" }).click();
+  await expect(review).toBeHidden();
+
+  const parentTab = page.getByRole("tab", { name: "Parent" });
+  await parentTab.click();
+  await expect(parentTab).toHaveAttribute("aria-selected", "true");
+  await expect(page.getByRole("heading", { name: /Best inherit/ })).toBeVisible();
+});

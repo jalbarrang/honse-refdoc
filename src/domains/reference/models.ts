@@ -1,3 +1,5 @@
+import type { TierListData } from "./tier-list";
+
 export interface ReferenceHeading {
   id: string;
   text: string;
@@ -16,6 +18,7 @@ export interface ArticleSummary {
 export interface ReferenceArticle extends ArticleSummary {
   html: string;
   headings: ReferenceHeading[];
+  tierList?: TierListData;
 }
 
 export interface ReferenceDomain {

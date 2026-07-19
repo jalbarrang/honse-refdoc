@@ -16,6 +16,8 @@ import {
   type ProfiledSource,
   type SourceStats,
 } from "./source-profile";
+import { extractTierList } from "./extract-tier-list";
+import type { TierListData } from "../../src/domains/reference/tier-list";
 
 interface HeadingRecord {
   line: number;
@@ -54,6 +56,7 @@ interface GeneratedArticle {
   html: string;
   headings: GeneratedHeading[];
   aliases: Record<string, string>;
+  tierList?: TierListData;
 }
 
 interface ArticleSummary {
@@ -369,15 +372,17 @@ export async function buildContent(): Promise<BuildResult> {
 
   for (const work of articleWork) {
     const rendered = renderArticle(work, source.lines, targets, source.images);
+    const extracted = extractTierList(rendered.html);
     const article: GeneratedArticle = {
       path: work.path,
       domain: work.domain.slug,
       slug: work.slug,
       title: work.title,
       description: descriptionFor(work, rendered.markdown, rendered.html),
-      html: rendered.html,
+      html: extracted.html,
       headings: rendered.headings,
       aliases: rendered.aliases,
+      tierList: extracted.tierList,
     };
     generated.push({ work, article, body: htmlToText(rendered.html) });
   }

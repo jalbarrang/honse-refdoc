@@ -89,16 +89,17 @@ function validateArticleShape(article: Article): void {
 
   const ids = attributeValues(article.html, "id");
   assert(ids.length === new Set(ids).size, `${article.path} has duplicate IDs`);
+  const headingIds = [...article.html.matchAll(/<h[2-6] id="([^"]+)"/g)].map((match) => match[1]);
   assert(
-    article.headings.length === ids.length,
+    article.headings.length === headingIds.length,
     `${article.path} heading metadata differs from HTML`,
   );
   assert(
-    article.headings.every((heading, index) => heading.id === ids[index]),
+    article.headings.every((heading, index) => heading.id === headingIds[index]),
     `${article.path} heading IDs are out of sync`,
   );
   assert(
-    Object.values(article.aliases).every((id) => ids.includes(id)),
+    Object.values(article.aliases).every((id) => headingIds.includes(id)),
     `${article.path} has an alias without a canonical target`,
   );
 }
