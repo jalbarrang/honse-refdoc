@@ -39,8 +39,10 @@ export function SearchDialog(props: SearchDialogProps) {
       ref={setDialog}
       class="search-dialog"
       aria-labelledby="search-dialog-title"
-      onClose={() => {
-        if (props.open) props.onClose();
+      onClose={(event) => {
+        // The close event is queued async; if the dialog was reopened before it
+        // ran (close then instantly reopen), ignore the stale event.
+        if (props.open && !event.currentTarget.open) props.onClose();
       }}
     >
       <header class="search-dialog-header">
