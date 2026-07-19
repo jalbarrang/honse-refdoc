@@ -1,5 +1,6 @@
 import { For } from "solid-js";
 import type { ReferenceDomain } from "~/domains/reference";
+import { toSitePath } from "~/shared/site-path";
 
 export interface DesktopDomainNavProps {
   domains: readonly ReferenceDomain[];
@@ -15,7 +16,7 @@ export function DesktopDomainNav(props: DesktopDomainNavProps) {
           {(domain, index) => (
             <li>
               <a
-                href={`/${domain.slug}`}
+                href={toSitePath(`/${domain.slug}`)}
                 aria-current={props.activeDomain === domain.slug ? "page" : undefined}
               >
                 <span aria-hidden="true">{String(index() + 1).padStart(2, "0")}</span>

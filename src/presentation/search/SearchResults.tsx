@@ -1,5 +1,6 @@
 import { For, Show } from "solid-js";
 import type { SearchResult } from "~/domains/search";
+import { toSitePath } from "~/shared/site-path";
 
 export interface SearchResultsProps {
   query: string;
@@ -45,7 +46,7 @@ export function SearchResults(props: SearchResultsProps) {
           <For each={props.results}>
             {(result) => (
               <li class="search-result-item">
-                <a href={resultPath(result)} onClick={props.onNavigate}>
+                <a href={toSitePath(resultPath(result))} onClick={props.onNavigate}>
                   <strong>{result.title}</strong>
                   <Show when={result.heading}>
                     {(heading) => <span>Matched heading: {heading().text}</span>}

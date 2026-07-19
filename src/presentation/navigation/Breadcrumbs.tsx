@@ -1,4 +1,5 @@
 import { For, Show } from "solid-js";
+import { toSitePath } from "~/shared/site-path";
 
 export interface BreadcrumbItem {
   label: string;
@@ -17,7 +18,7 @@ export function Breadcrumbs(props: BreadcrumbsProps) {
           {(item) => (
             <li>
               <Show when={item.href} fallback={<span aria-current="page">{item.label}</span>}>
-                {(href) => <a href={href()}>{item.label}</a>}
+                {(href) => <a href={toSitePath(href())}>{item.label}</a>}
               </Show>
             </li>
           )}

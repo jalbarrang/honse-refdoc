@@ -1,5 +1,6 @@
 import type { ParentProps } from "solid-js";
 import type { ReferenceDomain } from "~/domains/reference";
+import { toSitePath } from "~/shared/site-path";
 import { DesktopDomainNav } from "../navigation/DesktopDomainNav";
 import { MobileDomainNav } from "../navigation/MobileDomainNav";
 import { SearchTrigger } from "../navigation/SearchTrigger";
@@ -17,7 +18,11 @@ export function SiteShell(props: SiteShellProps) {
         Skip to field guide
       </a>
       <header class="site-header">
-        <a class="site-mark" href="/" aria-label="Uma musume - Reference Document, home">
+        <a
+          class="site-mark"
+          href={toSitePath("/")}
+          aria-label="Uma musume - Reference Document, home"
+        >
           <strong>Uma musume - Reference Document</strong>
         </a>
         <div class="header-actions">

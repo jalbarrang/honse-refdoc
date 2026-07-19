@@ -1,5 +1,6 @@
 import { For, Show } from "solid-js";
 import type { ArticleSummary, ReferenceDomain } from "~/domains/reference";
+import { toSitePath } from "~/shared/site-path";
 
 export interface DomainHubViewProps {
   domain: ReferenceDomain;
@@ -25,7 +26,7 @@ export function DomainHubView(props: DomainHubViewProps) {
           <For each={props.articles}>
             {(article, index) => (
               <li>
-                <a href={article.path}>
+                <a href={toSitePath(article.path)}>
                   <span class="index-number">{String(index() + 1).padStart(2, "0")}</span>
                   <span class="index-copy">
                     <strong>{article.title}</strong>

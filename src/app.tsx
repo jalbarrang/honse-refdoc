@@ -9,6 +9,7 @@ import "~/styles/app.css";
 export default function App() {
   return (
     <Router
+      base={import.meta.env.SERVER_BASE_URL}
       root={(props) => (
         <MetaProvider>
           <Suspense>{props.children}</Suspense>

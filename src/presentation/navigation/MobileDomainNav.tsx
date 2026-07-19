@@ -1,5 +1,6 @@
 import { For } from "solid-js";
 import type { ReferenceDomain } from "~/domains/reference";
+import { toSitePath } from "~/shared/site-path";
 
 export interface MobileDomainNavProps {
   domains: readonly ReferenceDomain[];
@@ -16,13 +17,13 @@ export function MobileDomainNav(props: MobileDomainNavProps) {
         </svg>
       </summary>
       <nav aria-label="Mobile reference domains">
-        <a href="/" aria-current={props.activeDomain ? undefined : "page"}>
+        <a href={toSitePath("/")} aria-current={props.activeDomain ? undefined : "page"}>
           Starting gate
         </a>
         <For each={props.domains}>
           {(domain) => (
             <a
-              href={`/${domain.slug}`}
+              href={toSitePath(`/${domain.slug}`)}
               aria-current={props.activeDomain === domain.slug ? "page" : undefined}
             >
               {domain.title}

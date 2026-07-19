@@ -1,5 +1,6 @@
 import { For } from "solid-js";
 import type { ArticleSummary, ReferenceDomain } from "~/domains/reference";
+import { toSitePath } from "~/shared/site-path";
 
 export interface HomeViewProps {
   domains: readonly ReferenceDomain[];
@@ -19,7 +20,7 @@ export function HomeView(props: HomeViewProps) {
           Banners, training strategy, mid-run decisions, and the mechanics beneath every race, from
           Erzzy and Kireina&apos;s community reference document.
         </p>
-        <a href="/new-player">New player starting line</a>
+        <a href={toSitePath("/new-player")}>New player starting line</a>
       </section>
       <section class="domain-program" aria-labelledby="program-title">
         <header>
@@ -30,7 +31,7 @@ export function HomeView(props: HomeViewProps) {
           <For each={props.domains}>
             {(domain, index) => (
               <li>
-                <a href={`/${domain.slug}`}>
+                <a href={toSitePath(`/${domain.slug}`)}>
                   <span>{String(index() + 1).padStart(2, "0")}</span>
                   <div>
                     <strong>{domain.title}</strong>
