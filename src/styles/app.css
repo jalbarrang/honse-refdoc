@@ -254,10 +254,11 @@
     color: var(--color-on-accent);
   }
 
+  /* The shell spans the full window; individual content columns keep their
+     own reading measures and center themselves within main. */
   .shell-grid {
-    width: min(100%, 88rem);
+    width: 100%;
     min-height: calc(100vh - 8.5rem);
-    margin-inline: auto;
   }
 
   .shell-grid > main {
@@ -305,6 +306,7 @@
 
   .domain-masthead {
     max-width: 56rem;
+    margin-inline: auto;
     border-bottom: 1px solid var(--color-line);
     padding-bottom: 1.1rem;
   }
@@ -348,7 +350,7 @@
   /* Ledger index: dense rows, dotted leaders to the date column. */
   .article-index {
     max-width: 56rem;
-    margin: 0.5rem 0 0;
+    margin: 0.5rem auto 0;
     padding: 0;
     list-style: none;
   }
@@ -416,7 +418,7 @@
     max-width: 35rem;
     border: 1px dashed var(--color-line);
     border-radius: 0.5rem;
-    margin-top: 1.25rem;
+    margin: 1.25rem auto 0;
     padding: 1rem 1.25rem;
     color: var(--color-ink-muted);
     font-size: 0.95rem;
@@ -433,13 +435,9 @@
     min-width: 0;
   }
 
-  /* Pages with a tier list break out of the prose measure: the shell and
-     article column go full width so tier rows can breathe, while running
-     prose keeps its 44rem reading measure. */
-  .shell-grid:has(.article-layout-wide) {
-    width: 100%;
-  }
-
+  /* Pages with a tier list break out of the prose measure: the article
+     column goes full width so tier rows can breathe, while running prose
+     keeps its 44rem reading measure. */
   .article-layout-wide > article {
     width: 100%;
   }
@@ -870,6 +868,7 @@
 
   .not-found {
     max-width: 42rem;
+    margin-inline: auto;
     padding-top: 1.5rem;
   }
 
@@ -1255,6 +1254,7 @@
 
   .home-hero {
     max-width: 56rem;
+    margin-inline: auto;
     padding-bottom: 1.75rem;
   }
 
@@ -1303,7 +1303,7 @@
   }
 
   .domain-program {
-    margin-top: 1.25rem;
+    margin: 1.25rem auto 0;
     max-width: 56rem;
   }
 
